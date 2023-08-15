@@ -1,0 +1,31 @@
+<%- include('../includes/head.ejs')%>
+    <link rel="stylesheet" href="/css/add-product.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    </head>
+
+    <body>
+        <%- include('../includes/nav.ejs')%>
+            <main>
+                <% if(errorMessage){%>
+                    <%= errorMessage%>
+                        <% }%>
+                            <form class="login-form" action="/signup" method="POST" novalidate>
+                                <div class="form-control">
+                                    <label for="email">E-Mail</label>
+                                    <input type="email" name="email" value="<%= olddata.email%>">
+                                </div>
+                                <div class="form-control">
+                                    <label for="password">Password</label>
+                                    <input type="password" name="password" id="password" value="<%= olddata.password%>">
+                                </div>
+                                <div class="form-control">
+                                    <label for="cpassword">Confirm Password</label>
+                                    <input type="password" name="confirmpassword" id="confirmpassword">
+                                </div>
+                                <button type="submit" class="btn">
+                                    <input type="hidden" name="_csrf" id="" value="<%= csrfToken %>">
+                                    Sign up
+                                </button>
+                            </form>
+            </main>
+            <%- include('../includes/end.ejs')%>

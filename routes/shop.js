@@ -1,0 +1,20 @@
+const path=require('path');
+
+const express= require('express');
+const router=express.Router();
+const shopController=require('../controllers/shop');
+const isAuth=require('../middleware/is-auth');
+const adminData=require('./admin');
+router.get('/',shopController.getindex );
+    // res.sendFile(path.join(__dirname,'../','views','shop.html'));
+    // console.log(adminData.products);
+router.get('/products',shopController.getproducts);
+router.get('/products/:productid',isAuth,shopController.getproduct);
+router.get('/cart',isAuth,shopController.getcartitem);
+// router.get('/checkout',shopController.getcheckout);
+router.get('/orders',isAuth,shopController.getorders);
+router.post('/cart',isAuth,shopController.postcart); 
+router.post('/cart-delete-item',isAuth,shopController.postCartDeleteProduct);
+router.post('/create-order', isAuth,shopController.postOrder);
+router.get('/orders/:orderid',isAuth,shopController.getinvoice);
+module.exports=router;

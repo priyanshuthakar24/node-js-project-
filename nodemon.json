@@ -1,0 +1,7 @@
+{
+    "env": {
+        "MONGO_USER":"priyanshuthakar24",
+        "MONGO_PASSWORD":"%40pinku24",
+        "MONGODB_DEFAULT_DATABASE":"shop"
+    }
+}
